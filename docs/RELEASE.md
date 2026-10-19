@@ -17,6 +17,8 @@ Wedex 把官方 Codex 账号接入你自己的微信私聊。这个独立仓库�
 
 ## English release notes
 
+发布验证：160 项离线回归、无开发工具 PATH 下的中文空格目录安装、重复安装、真实按需任务与后台启动停止均已通过。当前版本没有重新登录私人账号或进行新的手机实聊，旧版实机记录单独列明。
+
 Wedex connects your own official Codex account to owner-only WeChat private chat. This standalone repository is prepared from the current Webot implementation and includes context, roles, versioned memory, feedback, local stickers, history, backup/restore, and account-supported native search, vision and image generation/editing.
 
 Extract the release ZIP into a permanent directory and double-click `Wedex.bat`. First launch prepares project-local official Node.js 24.22.0, Codex 0.163.0 and locked dependencies, starts the backend and opens the console. No preinstalled Node/npm/Git or global PATH change is needed; administrator access is not required by default.

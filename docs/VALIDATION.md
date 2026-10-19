@@ -21,9 +21,12 @@ This record separates historical Webot device evidence from checks performed on 
 | Closing launcher/browser/desktop leaves backend alive | Lifecycle boundary passed; new logged-in phone run not performed | Real scoped bootstrap with a 5-second task limit returned Ready/result 0 while its child remained alive after 8 seconds; graceful stop and task removal passed. Full backend integration also survived its bootstrap ending. Old phone/desktop-close evidence is listed below, not relabelled as current. |
 | Fresh official Codex login and WeChat QR binding | Pending; user action required | Do not copy existing auth. Record a new phone check separately if performed. |
 | Current release phone chat/media/tool behavior | Pending; user action required | Record exact exercised features; no automatic resend for uncertain results. |
-| Release ZIP contents and credential exclusion | Pending | Verify allowlisted contents and absence of state, account sessions, logs and private evidence. |
+| Candidate ZIP contents and credential exclusion | Passed 2026-10-19 | 70 files compared byte-for-byte against the candidate Git commit; runtime, dependencies, credentials, sessions, logs and private evidence excluded. Final tagged asset is rechecked before upload. |
 | Public screenshots | Passed 2026-10-19 | Launcher preview uses fictional, unbound state; inspected image contains no credentials, account identifiers or private conversation. |
 | Documentation and local links | Passed 2026-10-19; recheck after final edits | Checked 8 Markdown files, 32 relative links, runtime pins against the manifest, and private machine-path markers: no errors. This is a document check, not runtime validation. |
+| GitHub Windows CI | Passed candidate; final commit/tag gated separately | Both Windows offline regression and clean portable installation passed for source candidate `4d3f609`: [run](https://github.com/ChrisZ-123/Wedex/actions/runs/39233522047). Final checks are linked from the release. |
+
+The installed official runtime also passed `test/install-runtime-probe.mjs`: initialize, initialized and account/read in an empty independent file credential store, with no account present and child streams fully closed. Ignored, unbound probe directories are retained under test-output; they are not shipped.
 
 ## Earlier real-device evidence / 旧版实机证据
 
