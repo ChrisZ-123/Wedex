@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "platform": "win32-x64",
+  "node": {
+    "version": "24.22.0",
+    "url": "https://nodejs.org/dist/v24.22.0/node-v24.22.0-win-x64.zip",
+    "sha256": "f9683a19877e12a9b167305c8db71040d812876359de21f0d2e97c3f321f80c3",
+    "integritySource": "https://nodejs.org/dist/v24.22.0/SHASUMS256.txt",
+    "archiveRoot": "node-v24.22.0-win-x64",
+    "executableSha256": "ba93f9a70bd86fce3ebbb39ec758501458453467aa92a34a0a3602d1e3fc2b9c"
+  },
+  "codex": {
+    "version": "0.163.0",
+    "url": "https://github.com/openai/codex/releases/download/rust-v0.163.0/codex-package-x86_64-pc-windows-msvc.tar.gz",
+    "sha256": "901028b285614a9974f431f9d9f6534b3e5ed8d62eba4ba64f4762c00f040522",
+    "integritySource": "https://api.github.com/repos/openai/codex/releases/tags/rust-v0.163.0",
+    "executableSha256": "2692c8c7bb2cf8b0aefe638741fc90236f4b824c59578ce84994f9de58200993",
+    "codeModeHostSha256": "07f3869f0849cd54b31cec1f86ec796f004501bd3a215135c1facc883a2b9988",
+    "requiredFiles": [
+      "bin/codex.exe",
+      "bin/codex-code-mode-host.exe",
+      "codex-package.json",
+      "codex-path/rg.exe",
+      "codex-resources/codex-command-runner.exe",
+      "codex-resources/codex-windows-sandbox-setup.exe",
+      "codex-resources/voice/bin/codex-voice-host.exe",
+      "codex-resources/voice/manifest.json"
+    ]
+  }
+}

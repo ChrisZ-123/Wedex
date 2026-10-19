@@ -1,0 +1,30 @@
+{
+  "name": "wedex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File scripts/Control.ps1 -Action Start",
+    "test": "node --test test/*.test.js",
+    "setup": "powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File Setup.ps1",
+    "stop": "powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File scripts/Control.ps1 -Action Stop",
+    "status": "powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File scripts/Control.ps1 -Action Status",
+    "open": "powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File scripts/Control.ps1 -Action OpenConsole"
+  },
+  "dependencies": {
+    "qrcode": "1.5.4"
+  },
+  "description": "A private WeChat companion powered by your official Codex account, with local memory and a Windows one-click launcher.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisZ-123/Wedex.git"
+  },
+  "homepage": "https://github.com/ChrisZ-123/Wedex#readme",
+  "bugs": {
+    "url": "https://github.com/ChrisZ-123/Wedex/issues"
+  }
+}

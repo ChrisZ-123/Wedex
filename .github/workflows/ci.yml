@@ -1,0 +1,48 @@
+name: Windows checks
+
+on:
+  push:
+    branches: [main]
+    tags: ['wedex-v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    name: Windows / Node 24 / offline regression
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm test
+  portable:
+    name: Windows / portable first installation
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Prepare a clean Chinese path without developer tools in PATH
+        shell: powershell
+        run: |
+          $target=Join-Path $env:RUNNER_TEMP 'Wedex 中文 空格'
+          New-Item -ItemType Directory -Path $target | Out-Null
+          git archive --format=tar --output="$env:RUNNER_TEMP\wedex.tar" HEAD
+          tar -xf "$env:RUNNER_TEMP\wedex.tar" -C $target
+          $env:PATH="$env:SystemRoot\System32;$env:SystemRoot;$env:SystemRoot\System32\WindowsPowerShell\v1.0"
+          & "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$target\Setup.ps1" -EnvironmentOnly
+          if($LASTEXITCODE -ne 0){throw 'Portable setup failed'}
+          & "$target\runtime\node\node.exe" --version
+          Push-Location -LiteralPath $target
+          try { & "$target\runtime\node\node.exe" --test test/*.test.js; if($LASTEXITCODE -ne 0){throw 'Portable regression failed'} } finally { Pop-Location }
+          & "$target\runtime\node\node.exe" "$target\test\install-runtime-probe.mjs"
+          if($LASTEXITCODE -ne 0){throw 'Isolated app-server handshake failed'}
+          & "$env:SystemRoot\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$target\Setup.ps1" -EnvironmentOnly
+          if($LASTEXITCODE -ne 0){throw 'Repeated portable setup failed'}
