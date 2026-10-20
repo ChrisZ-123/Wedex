@@ -6,6 +6,28 @@
 
 **v0.1.0 是 Windows x64 预览版。** 只接收扫码绑定主人的私聊，不接入其他联系人、群聊、QQ、鸣潮或账号托管。模型与原生工具取决于你的账号权限、额度、网络及通道能力。项目独立维护，与 OpenAI、腾讯没有隶属关系。
 
+## 工作台预览
+
+**当前对话与运行记录**：同屏查看消息、原始回复、耗时、发送结果和表达反馈。
+
+![Wedex 工作台：当前对话、模型与人格配置及运行记录](docs/images/workbench-conversation.jpg)
+
+<details>
+<summary>查看记忆管理截图：置顶、来源与历史版本</summary>
+
+![Wedex 工作台：长期记忆及展开的历史版本](docs/images/workbench-memory.jpg)
+
+</details>
+
+<details>
+<summary>查看角色卡管理截图：当前角色、角色文本与导入入口</summary>
+
+![Wedex 工作台：角色卡选择与管理](docs/images/workbench-roles.jpg)
+
+</details>
+
+以上截图使用发布版前端和虚构演示数据；账号连接、模型、对话、记忆和角色均为示例，不代表真实登录或手机验收结果。
+
 ## 三步开始
 
 1. 在 [Releases](https://github.com/ChrisZ-123/Wedex/releases) 下载 `Wedex-v0.1.0-windows-x64.zip`，解压到你准备长期保留的目录。不要直接在压缩包里运行。
@@ -18,9 +40,9 @@
 
 控制台固定为 `127.0.0.1:3130`，通过启动器打开以完成本机鉴权。一个端口只允许一个实例；端口被占用时会明确失败。启动器不会接管或停止已有 Webot 或其他程序。
 
-## 能做什么
-
 ![Wedex PowerShell 启动页；图中为虚构示例，未连接真实账号](docs/images/launcher.png)
+
+## 能做什么
 
 | 能力 | 使用方法与边界 |
 | --- | --- |

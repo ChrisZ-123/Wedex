@@ -6,6 +6,28 @@ A private WeChat companion powered by your own official Codex account. Includes 
 
 **v0.1.0 is a Windows x64 preview.** It accepts only private messages from the owner who scans the binding QR code. Other contacts, groups, QQ, Wuthering Waves and hosted accounts are outside its scope. Models and native tools depend on your account, quota, network and channel capabilities. This is an independent community project with no affiliation to OpenAI or Tencent.
 
+## Workbench preview
+
+**Conversation and runs**: inspect messages, original replies, timing, send results and feedback together.
+
+![Wedex workbench showing the current conversation, model and persona settings, and run details](docs/images/workbench-conversation.jpg)
+
+<details>
+<summary>Memory management: pinned entries, sources and revision history</summary>
+
+![Wedex workbench showing long-term memory and expanded revision history](docs/images/workbench-memory.jpg)
+
+</details>
+
+<details>
+<summary>Role cards: selection, role text and import controls</summary>
+
+![Wedex workbench showing role card selection and management](docs/images/workbench-roles.jpg)
+
+</details>
+
+These screenshots render the released frontend with fictional demo data. Account connections, models, conversations, memories and roles are examples, not evidence of real login or phone acceptance.
+
 ## Get started
 
 ![PowerShell launcher with fictional preview data; no real account is connected](docs/images/launcher.png)
